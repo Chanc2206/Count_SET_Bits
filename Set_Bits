@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int countSetBits(int num) {
+    int count = 0;
+    for (int i = 0; i < sizeof(num) * 8; ++i) {
+        switch ((num >> i) & 1) {
+            case 1:
+                count += 1;
+                break;
+            case 0:
+                // Do nothing
+                break;
+        }
+    }
+    return count;
+}
+
+int main() {
+    int a, b;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+
+    int totalSetBits = countSetBits(a) + countSetBits(b);
+    
+    cout << "Total number of set bits in " << a << " and " << b << " is: " << totalSetBits << endl;
+    
+    return 0;
+}
